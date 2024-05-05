@@ -7,14 +7,18 @@
 <meta charset="UTF-8">
 <title></title>
 <script>
+  // 创建一个变量来跟踪页面是否已经刷新过
+  var isReloaded = false;
+
   // 使用window.onload确保页面完全加载后再执行刷新
   window.onload = function() {
-    // 使用setTimeout来设置延迟，这里是0毫秒
-    setTimeout(function() {
-      window.location.reload();
-      // 移除window.onload事件处理函数，防止再次刷新
-      window.onload = null;
-    }, 0);
+    if (!isReloaded) {
+      // 使用setTimeout来设置延迟，这里是0毫秒
+      setTimeout(function() {
+        window.location.reload();
+        isReloaded = true; // 设置为已刷新
+      }, 0);
+    }
   };
 </script>
 </head>
