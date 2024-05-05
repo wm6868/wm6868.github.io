@@ -12,6 +12,8 @@
     // 使用setTimeout来设置延迟，这里是0毫秒
     setTimeout(function() {
       window.location.reload();
+      // 移除window.onload事件处理函数，防止再次刷新
+      window.onload = null;
     }, 0);
   };
 </script>
