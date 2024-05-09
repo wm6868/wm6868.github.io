@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Link Example</title>
+</head>
+<body>
+    <h1>Preview Link Example</h1>
+    <p>Click the link below to preview the article:</p >
+  <a href="https://wumingggyx.github.io/wmsp/djsp/1/index(1).html" target="_blank">Preview Article</a> 
+
+    <!-- 或者，如果您想要在当前页面显示预览内容，可以使用JavaScript和Ajax来获取内容 -->
+    <button id="previewButton">Load Preview</button>
+    <div id="previewContainer"></div>
+
+    <script>
+        document.getElementById('previewButton').addEventListener('click', function() {
+            // 假设 article.html 的内容可以通过 Ajax 获取
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'article.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // 将获取到的内容展示在页面上
+                    document.getElementById('previewContainer').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
